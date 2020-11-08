@@ -52,6 +52,10 @@ main() {
     cd $BUILD_DIR
 
     echo Building with flags: ${BUILD_FLAGS:+"$BUILD_FLAGS"}
+    git clone git@github.com:turnage/podiat.git
+    cargo install --path podiat
+    
+    fish preprocess.fish
     zola build ${BUILD_FLAGS:+$BUILD_FLAGS}
 
     if ${BUILD_ONLY}; then
